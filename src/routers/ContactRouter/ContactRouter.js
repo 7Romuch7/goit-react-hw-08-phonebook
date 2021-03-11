@@ -1,12 +1,12 @@
 import { Component } from 'react';
 import { connect } from "react-redux";
-import Title from './Title';
-import ContactForm from './ContactForm';
-import ContactList from './ContactList';
-import Filter from './Filter';
-import { phonebookOperations, phonebookSelectors } from '../redux/phonebook';
+import Title from '../../components/Title';
+import ContactForm from '../../components/ContactForm';
+import ContactList from '../../components/ContactList';
+import Filter from '../../components/Filter';
+import { phonebookOperations, phonebookSelectors } from '../../redux/phonebook';
 
-class App extends Component {
+class ContactRouter extends Component {
 
   componentDidMount() {
     this.props.fetchContact();
@@ -33,4 +33,4 @@ const mapDispatchToProps = dispatch => ({
 fetchContact: () => dispatch(phonebookOperations.fetchContact())
 })
 
-export default connect( mapStateToProps, mapDispatchToProps )(App);
+export default connect( mapStateToProps, mapDispatchToProps )(ContactRouter);

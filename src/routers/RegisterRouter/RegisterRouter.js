@@ -1,4 +1,7 @@
 import { Component } from "react";
+import { connect } from "react-redux";
+import authOperations from '../../redux/auth/auth-operations';
+import styles from './RegisterRouter.module.css';
 
 class RegisterRouter extends Component {
     state = {
@@ -13,6 +16,8 @@ class RegisterRouter extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
+
+        this.props.onRegister(this.state);
 
         this.setState({ name: '', email: '', password: '' });
     }
@@ -33,7 +38,7 @@ class RegisterRouter extends Component {
                         type="text"
                         name="name"
                         value={name}
-                        onChange={handleChange} />
+                        onChange={this.handleChange} />
                 </label>
 
                 <label>
@@ -62,4 +67,9 @@ class RegisterRouter extends Component {
     )}
 }
 
-export default RegisterRouter;
+
+const mapDispatchToProps = {
+    onRegister: authOperations.register,
+}
+
+export default connect(null, mapDispatchToProps)(RegisterRouter);

@@ -43,6 +43,8 @@ render() {
                         onChange={this.handleChange}
                     />
                 </label>
+
+                 <button type="submit">Войти</button>
             </form>
         </div>
     )}

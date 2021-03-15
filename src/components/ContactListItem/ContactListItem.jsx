@@ -21,7 +21,7 @@ ContactListItem.defaultProps = {
 };
 
 ContactListItem.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
   onRemove: PropTypes.func,

@@ -1,17 +1,15 @@
 import axios from 'axios';
 import {
-  addContactRequest,
-  addContactSuccess,
-  addContactError,
-  removeContactRequest,
-  removeContactSuccess,
-  removeContactError,
-  fetchContactRequest,
-  fetchContactSuccess,
-  fetchContactError,
-} from './phonebook-actions'
-
-axios.defaults.baseURL = 'http://localhost:4040';
+    addContactRequest,
+    addContactSuccess,
+    addContactError,
+    removeContactRequest,
+    removeContactSuccess,
+    removeContactError,
+    fetchContactRequest,
+    fetchContactSuccess,
+    fetchContactError,
+} from './phonebook-actions';
 
 const fetchContact = () => async dispatch => {
     dispatch(fetchContactRequest());

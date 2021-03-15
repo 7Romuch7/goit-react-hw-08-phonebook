@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { connect } from "react-redux";
-import authOperations from '../../redux/auth/auth-operations';
+import {authOperations} from '../../redux/auth';
 import styles from './RegisterRouter.module.css';
 
 class RegisterRouter extends Component {
@@ -26,42 +26,47 @@ class RegisterRouter extends Component {
     const { name, email, password } = this.state;
 
     return (
-        <div>
-            <h1>Registration Page</h1>
-            <form
+        <div className={styles.registerPage}>
+            <form className={styles.formRegister}
                 onSubmit={this.handleSubmit}
                 autoComplete="off"  
             >
-                <label style={styles.label}>
-                    Имя
-                <input
+                <label className={styles.labelRegister}>
+                    Name
+                <input className={styles.inputRegister}
                         type="text"
                         name="name"
+                        placeholder="Enter name"
                         value={name}
                         onChange={this.handleChange} />
                 </label>
 
-                <label>
-                    Почта
-                    <input
+                <label className={styles.labelRegister}>
+                    Email
+                    <input className={styles.inputRegister}
                         type="email"
                         name="email"
+                        placeholder="Enter email"
                         value={email}
                         onChange={this.handleChange}
                     />
                 </label>
 
-                <label>
+                <label className={styles.labelRegister}>
                     Password
-                    <input
+                    <input className={styles.inputRegister}
                         type="password"
                         name="password"
+                        placeholder="Enter password"
                         value={password}
                         onChange={this.handleChange}
                     />
                 </label>
 
-                <button type="submit">Зарегистрироваться</button>
+                {/* <button className={styles.btnRegister} type="submit">chekin</button> */}
+                {this.state.name && this.state.email && this.state.password > 0
+            ? <button className={styles.btnRegister} type="submit">chekin</button>
+            : <button disabled className={styles.btnRegister} type="submit">chekin</button>}
             </form>
         </div>
     )}

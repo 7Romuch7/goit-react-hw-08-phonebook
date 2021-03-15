@@ -3,22 +3,20 @@ import styles from './AuthNav.module.css';
 
 export default function AuthNav() {
   return (
-    <div>
+    <div className={styles.authNav}>
       <NavLink
         to="/register"
         exact
-        style={styles.link}
-        activeStyle={styles.activeLink}
+        className={styles.autLink}
       >
-        Регистрация
+        Register
       </NavLink>
       <NavLink
         to="/login"
         exact
-        style={styles.link}
-        activeStyle={styles.activeLink}
+        className={styles.autLink}
       >
-        Логин
+        Login
       </NavLink>
     </div>
   );

@@ -5,6 +5,7 @@ import ContactForm from '../../components/ContactForm';
 import ContactList from '../../components/ContactList';
 import Filter from '../../components/Filter';
 import { phonebookOperations, phonebookSelectors } from '../../redux/phonebook';
+import styles from './ContactRouter.module.css';
 
 class ContactRouter extends Component {
 
@@ -14,7 +15,7 @@ class ContactRouter extends Component {
 
   render() {
     return (
-      <div className="container" >
+      <div className={styles.wrapperPhonebook} >
         <Title title='Phonebook'/>
         <ContactForm />
         <Filter />

@@ -6,6 +6,7 @@ import authOperations from './redux/auth/auth-operations';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import Loader from './components/Loader';
+import { ToastContainer } from "react-toastify";
 import { connect } from 'react-redux';
 
 const HomePage = lazy(() => import('./routers/HomePage'));
@@ -30,6 +31,7 @@ class App extends Component {
               <PrivateRoute path='/contacts' component={ContactRouter} redirectTo={'/login'}/>
           </Switch>
         </Suspense>
+        <ToastContainer autoClose={3000} position="top-right" type="default"/>
       </Container>
     )
   }

@@ -1,6 +1,9 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import { authOperations } from '../../redux/auth';
+import { toast } from 'react-toastify';
+import Title from '../../components/Title';
+import 'react-toastify/dist/ReactToastify.css';
 import styles from './LoginRouter.module.css';
 
 class LoginRouter extends Component {
@@ -15,17 +18,24 @@ class LoginRouter extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
+        const { email, password } = this.state;
+         if (email === '') { toast.error('Enter email!'); }
+        else {
+            if (password.length < 8) { toast.error('Wrong password!'); }
+            else {
+                this.props.onLogin(this.state);
 
-        this.props.onLogin(this.state);
-
-        this.setState({ name: '', email: '', password: '' });
-    }
+                this.setState({ email: '', password: '' });
+            };
+        };
+    };
 
 render() {
     const { email, password } = this.state;
 
     return (
         <div className={styles.loginPage}>
+            <Title title='Login'/>
             <form className={styles.formLogin}
                 onSubmit={this.handleSubmit}
                 autoComplete="off"  

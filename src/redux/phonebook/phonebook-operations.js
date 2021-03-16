@@ -38,15 +38,19 @@ const removeContact = contactId => async dispatch => {
     dispatch(removeContactRequest());
 
     try {
-        const {_} = await axios.delete(`/contacts/${contactId}`);
+        /* eslint-disable no-unused-vars */
+        const { _ } = await axios.delete(`/contacts/${contactId}`);
+        /* eslint-disable no-unused-vars */
         dispatch(removeContactSuccess(contactId));
     } catch (error) {
         dispatch(removeContactError(error.message));
     }
 }
 
-export default {
+const operationsPhonebook = {
     fetchContact,
     addContact,
     removeContact
 }
+
+export default operationsPhonebook;

@@ -8,6 +8,10 @@
    background-position: center;
 }
 
+.title {
+    color: rgb(155, 119, 2);
+}
+
 .formLogin {
     display: flex;
     flex-direction: column;

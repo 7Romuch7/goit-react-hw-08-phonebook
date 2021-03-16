@@ -38,4 +38,9 @@ const store = configureStore({
 
 const persistor = persistStore(store);
 
-export default {store, persistor};
+const phonebookStore = {
+  store,
+  persistor
+}
+
+export default phonebookStore;

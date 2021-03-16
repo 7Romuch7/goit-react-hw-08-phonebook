@@ -1,6 +1,9 @@
 import { Component } from "react";
 import { connect } from "react-redux";
-import {authOperations} from '../../redux/auth';
+import { authOperations } from '../../redux/auth';
+import Title from '../../components/Title';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import styles from './RegisterRouter.module.css';
 
 class RegisterRouter extends Component {
@@ -16,17 +19,28 @@ class RegisterRouter extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-
-        this.props.onRegister(this.state);
-
-        this.setState({ name: '', email: '', password: '' });
-    }
+        const { name, email, password } = this.state;
+        if (name.length < 8) {
+            toast.error('Enter a name at least 8 characters!');
+        } else {
+            if (email === '') { toast.error('Enter email!'); }
+            else {
+                if (password.length < 8) { toast.error('Enter a password at least 8 characters!'); }
+                else {
+                        this.props.onRegister(this.state);
+                        this.setState({ name: '', email: '', password: '' });
+                    };
+                };
+        };
+        
+    };
 
     render() {
     const { name, email, password } = this.state;
 
     return (
         <div className={styles.registerPage}>
+            <Title title='Register'/>
             <form className={styles.formRegister}
                 onSubmit={this.handleSubmit}
                 autoComplete="off"  

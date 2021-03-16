@@ -13,6 +13,11 @@ const getVisibleContacts = createSelector([getAllContacts, getFilter], (contacts
   );
 })
 
-export default {
-    getLoading, getFilter, getVisibleContacts, getError
-};
+const selectorsPhonebook = {
+  getLoading,
+  getFilter,
+  getVisibleContacts,
+  getError
+}
+
+export default selectorsPhonebook;

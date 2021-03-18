@@ -79,8 +79,8 @@ class RegisterRouter extends Component {
 
                 {/* <button className={styles.btnRegister} type="submit">chekin</button> */}
                 {this.state.name && this.state.email && this.state.password > 0
-            ? <button className={styles.btnRegister} type="submit">chekin</button>
-            : <button disabled className={styles.btnRegister} type="submit">chekin</button>}
+            ? <button onSubmit={this.handleSubmit} className={styles.btnRegister} type="submit">chekin</button>
+            : <button disabled onSubmit={this.handleSubmit} className={styles.btnRegister} type="submit">chekin</button>}
             </form>
         </div>
     )}
